@@ -81,6 +81,7 @@ function mostrarNovedades() {
    novedades.setAttribute('id', 'novedades');
    contend.appendChild(novedades);
    avisoNov.removeEventListener('click', mostrarNovedades);
+   avisoJuego.removeEventListener('click', infoJuego);
 
    setTimeout(() => {
       pistas = new Typed('.hayNovedad', {
@@ -94,6 +95,7 @@ function mostrarNovedades() {
                var novedades = document.getElementById('novedades');
                contend.removeChild(novedades);
                avisoNov.addEventListener('click', mostrarNovedades);
+               avisoJuego.addEventListener('click', infoJuego);
             }, 4000)
          }
       })
@@ -163,6 +165,7 @@ function infoJuego() {
    novedades.setAttribute('id', 'novedades');
    contend.appendChild(novedades);
    avisoNov.removeEventListener('click', mostrarNovedades);
+   avisoJuego.removeEventListener('click', infoJuego);
 
    setTimeout(() => {
       pistas = new Typed('.hayNovedad', {
@@ -176,13 +179,14 @@ function infoJuego() {
                var novedades = document.getElementById('novedades');
                contend.removeChild(novedades);
                avisoNov.addEventListener('click', mostrarNovedades);
+               avisoJuego.addEventListener('click', infoJuego);
             }, 4000)
          }
       })
    }, 1000)  
 }
 
-var avisoNov = document.getElementById('boton2');
-avisoNov.addEventListener('click', infoJuego);
+var avisoJuego = document.getElementById('boton2');
+avisoJuego.addEventListener('click', infoJuego);
 
 
