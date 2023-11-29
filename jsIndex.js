@@ -181,9 +181,9 @@ function infoJuego() {
                avisoNov.addEventListener('click', mostrarNovedades);
                avisoJuego.addEventListener('click', infoJuego);
             }, 4000)
-            setTimeout(() => {
+            /*setTimeout(() => {
                window.location.href = "./Bucle1.html";
-            }, 4500)
+            }, 4500);*/
          }
       })
    }, 1000)  
