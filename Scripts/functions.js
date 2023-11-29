@@ -41,9 +41,9 @@ export const funcBucles = {
 
 //FUNCION FONDO ALEATORIE (BUCLES)
 function fondoAleatorie() {
-   var indice = Math.floor(Math.random() * 13);
+   var indice = Math.floor(Math.random() * 12);
    var video = document.getElementById('video');
-   video.src = `./src/VIDEOSLISTOS/FEVDS/${indice}.mp4`;
+   video.src = `./Videos/FEVDS/${indice}.mp4`;
 }
 
 //COMENTARIOS PLANTILLA LLAMAR A LA FUNCION
@@ -54,16 +54,16 @@ function fondoAleatorie() {
 
 //CAMBIAR FONDOS ALEATORIOS
 function cambiarFondo() {
-   let maximo = 22;
+   let maximo = 57;
    var fondo = Math.floor(Math.random() * maximo);
-   document.getElementById('fondo').style.background = `url('../src/IMGS/LISTOS/${fondo}.jpg') center center / cover`;
+   document.getElementById('fondo').style.background = `url('../Img/EVDS/${fondo}.jpg') center center / cover`;
 }
 
 //setTimeout(cambiarFondo, 1);
 
 //PONER EVIDENCIAS
 function ponerEvi() {
-   let maximoEV = 76;
+   let maximoEV = 57;
    var evidencia = Math.floor(Math.random() * maximoEV);
-   document.getElementById('fondo').style.background = `url('../src/IMGS/EVDS/${evidencia}.jpg') center center / cover`;
+   document.getElementById('fondo').style.background = `url('../Img/EVDS/${evidencia}.jpg') center center / cover`;
 }

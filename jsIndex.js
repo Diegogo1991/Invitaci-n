@@ -1,9 +1,9 @@
 /*window.alert('Puedes perder algo si no abres los ojos antes de que sea tarde');*/
 //prompt("Puedes perder algo si no abres los ojos antes de que sea tarde. Ingrese una fecha ?/?/23");
-//alert('Primer chat completo subido');
+window.alert('Ya se está alistando la actualización, espero verte mañana por aquí. - 8 p.m.');
 
 //IMPORTE DE FUNCIONES
-import { funcGene } from "./functions.js";
+import { funcGene } from "./Scripts/functions.js";
 
 //COLOCAR VIDEO ALEATORIO
 setTimeout(funcGene.fondoAleatorio, 1);
@@ -169,7 +169,7 @@ function infoJuego() {
 
    setTimeout(() => {
       pistas = new Typed('.hayNovedad', {
-         strings: [' · El juego estará disponible desde el 29 de noviembre. <br>· ¿Serás capaz de superar este acertijo?'],
+         strings: [' · Ten en cuenta:. <br>· Hay cosas que no ves, pero están por ahí. <br>· Esto apenas comienza y debes tratar de entender. <br>· Registra lo que creas pueda servir, cada día habrán cambios.'],
          typeSpeed: 30,
          cursorChar: '',
          loop: false,
@@ -181,6 +181,9 @@ function infoJuego() {
                avisoNov.addEventListener('click', mostrarNovedades);
                avisoJuego.addEventListener('click', infoJuego);
             }, 4000)
+            setTimeout(() => {
+               window.location.href = "./Bucle1.html";
+            }, 4500)
          }
       })
    }, 1000)  

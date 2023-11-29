@@ -1,6 +1,6 @@
 //IMPORTACION FUNCIONES GENERALES
 
-import { funcGene } from "./functions.js";
+import { funcGene } from "./Scripts/functions.js";
 
 setTimeout(funcGene.musicAleatorie, 1);
 
