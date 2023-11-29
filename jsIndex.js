@@ -1,6 +1,6 @@
 /*window.alert('Puedes perder algo si no abres los ojos antes de que sea tarde');*/
 //prompt("Puedes perder algo si no abres los ojos antes de que sea tarde. Ingrese una fecha ?/?/23");
-window.alert('Ya se está alistando la actualización, espero verte mañana por aquí. - 8 p.m.');
+window.alert('Ya se subió la primer parte.');
 
 //IMPORTE DE FUNCIONES
 import { funcGene } from "./Scripts/functions.js";
@@ -181,9 +181,9 @@ function infoJuego() {
                avisoNov.addEventListener('click', mostrarNovedades);
                avisoJuego.addEventListener('click', infoJuego);
             }, 4000)
-            /*setTimeout(() => {
+            setTimeout(() => {
                window.location.href = "./Bucle1.html";
-            }, 4500);*/
+            }, 4500);
          }
       })
    }, 1000)  
