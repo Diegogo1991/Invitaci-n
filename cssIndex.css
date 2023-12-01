@@ -51,6 +51,7 @@ html {
    flex-direction: column;
    position: relative;
    z-index: 5;
+   overflow: hidden;
 }
 
 #linkP {
@@ -163,7 +164,7 @@ html {
 }
 
 .botones a{
-   animation: float 3s linear infinite
+   animation: float 3s linear infinite;
 }
 
 #boton2{
@@ -175,7 +176,6 @@ html {
 }
 .botones img{
    width: 100%;
-   
 }
 
 @keyframes float{
@@ -193,7 +193,7 @@ html {
    }
 
 }
-
+/*
 .opcion1 {
    display: flex;
    justify-content: center;
@@ -244,11 +244,40 @@ html {
    border-radius: 10px;
    border: 2px;
    border-color: black;
-}
+}*/
 
 #hero {
    min-height: 100vh;
    position: relative;
+}
+
+.reproductor{
+   display: flex;
+   position: absolute;
+   bottom: 0;
+   border-radius: 40px;
+   background-color: rgba(0, 0, 255, 0.463);
+   height: 2.5rem;
+   width: 35%;
+   justify-content: space-between;
+   align-items: center;
+   z-index: 10;
+}
+
+.reproductor-botones{
+   display: flex;
+   height: 100%;
+   width: 25%;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(210, 105, 30, 0.593);
+   border-radius: 50px;
+   animation: animate 5s linear infinite;
+}
+
+.reproductor-botones i{
+   color: white;
+   align-items: center;
 }
 
 video {
@@ -273,7 +302,6 @@ audio {
    background: #1c1c1d;
    opacity: 0.5;
    mix-blend-mode: overlay;
-
 }
 
 .aviso {

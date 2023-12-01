@@ -1,6 +1,7 @@
 /*window.alert('Puedes perder algo si no abres los ojos antes de que sea tarde');*/
 //prompt("Puedes perder algo si no abres los ojos antes de que sea tarde. Ingrese una fecha ?/?/23");
-window.alert('Ya se subió la primer parte.');
+
+
 
 //IMPORTE DE FUNCIONES
 import { funcGene } from "./Scripts/functions.js";
@@ -15,17 +16,24 @@ setTimeout(funcGene.fondoAleatorio, 1);
 });
 setTimeout(funcGene.musicAleatorie, 1000);*/
 
+var cantidadCanciones = 19;
+
 document.addEventListener("DOMContentLoaded", function () {
    const audio = document.getElementById('audio');
    let primeraReproduccion = true;
 
+   const botonReproducir = document.getElementById('reproducir');
+   const botonPausar = document.getElementById('pausar');
+   const botonCambiar = document.getElementById('cambiar');
+
+   let indice = Math.floor(Math.random() * cantidadCanciones);
+
    function musicAleatorie() {
-       let indice = Math.floor(Math.random() * 19);
        audio.src = `./Musica/${indice}.mp3`;
        console.log("Música lista");
    }
 
-   function reproducirAudio() {
+   function reproducirAudioAleatorio() {
        if (primeraReproduccion) {
            musicAleatorie();
            audio.play().catch(error => {
@@ -33,15 +41,42 @@ document.addEventListener("DOMContentLoaded", function () {
            });
            primeraReproduccion = false;
            // Desvincula el event listener después de la primera reproducción
-           document.body.removeEventListener('click', reproducirAudio);
+           document.body.removeEventListener('click', reproducirAudioAleatorio);
        }
    }
 
+   function pausarCancion() {
+      audio.pause();
+   }
+
+   function reproducirCancion() {
+      audio.play();
+   }
+
+   function cambiarCancion() {
+      indice++;
+      if(indice > 19){
+         indice = 0;
+      }
+      audio.src = `./Musica/${indice}.mp3`;
+   }
+
+   botonPausar.addEventListener('click', pausarCancion);
+   botonReproducir.addEventListener('click', reproducirCancion);
+   botonCambiar.addEventListener('click', cambiarCancion);
    // Vincula la función a cualquier clic en el body
-   document.body.addEventListener('click', reproducirAudio);
+   //document.body.addEventListener('click', reproducirAudioAleatorio);
+
+   window.alert('Ya se subió la segunda parte.');
+   document.addEventListener('click', reproducirAudioAleatorio);
+   document.addEventListener('keydown', reproducirAudioAleatorio);
+   document.addEventListener('touchstart', reproducirAudioAleatorio);
+   document.addEventListener('mousemove', reproducirAudioAleatorio);
 });
 
-
+/*setTimeout(() => {
+   window.alert('Ya se subió la segunda parte.');
+}, 1000);*/
 
 
 const typed = new Typed('.typed', {
@@ -191,5 +226,3 @@ function infoJuego() {
 
 var avisoJuego = document.getElementById('boton2');
 avisoJuego.addEventListener('click', infoJuego);
-
-
