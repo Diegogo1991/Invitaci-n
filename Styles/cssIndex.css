@@ -108,9 +108,79 @@ html {
    color: white;
 }
 
+#inforjuego {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   top: 20%;
+   border-radius: 20px;
+   width: 0%;
+   height: auto;
+   background: linear-gradient(rgba(255, 94, 0, 0.6), rgb(255, 136, 0, 0.6), rgb(225, 0, 255, 0.6), rgb(76, 0, 255, 0.6));
+   font-size: 1rem;
+   color: aliceblue;
+   line-height: 1.5;
+   justify-content: center;
+   align-items: center;
+   z-index: 2;
+   text-align: center;
+   padding: 1rem;
+   box-sizing: border-box;
+   animation: novedades .5s forwards;
+}
+
 @keyframes novedades {
    100% {
       width: 80%
+   }
+}
+
+.floating-buttons {
+   display: flex;
+   position: fixed;
+   width: 45vw;
+   height: 12vh;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   /* background-color: rgba(0, 0, 0, 0.281);Puedes personalizar el color de fondo  */
+   border-radius: 15px;
+   z-index: 999; /* Asegura que esté sobre otros elementos */
+   align-items: center;
+   justify-content: space-around;
+
+}
+
+.floating-buttons div {
+   display: flex;
+   width: 50%;
+   height: 100%;
+   cursor: pointer;
+   color: aliceblue;
+   align-items: center;
+   justify-content: center;
+   border-radius: 15px;
+}
+
+#botonEasy{
+   background-color: rgba(0, 255, 255, 0.615);
+   border: 1px solid rgb(0, 85, 255);
+   box-shadow: 0 0 20px 0 cyan;
+   animation: botones .5s forwards;
+}
+
+#botonHard{
+   background-color: rgba(29, 27, 27, 0.615);
+   border: 1px solid rgb(156, 3, 3);
+   box-shadow: 0 0 20px 0 rgb(30, 30, 29);
+   animation: botones .5s forwards;
+   text-decoration: line-through;
+   color: rgb(103, 2, 2);
+}
+
+@keyframes botones {
+   100% {
+      width: 40%
    }
 }
 

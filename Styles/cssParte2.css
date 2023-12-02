@@ -232,6 +232,11 @@
       display: none;
    }
 
+   #Hero6 #conCancion {
+      background-color: rgba(93, 7, 173, 0.623);
+      border: .1rem solid rgb(0, 242, 250);
+   }
+
    /*Especifico Hero7*/
    #Hero7 {
       min-height: 100vh;

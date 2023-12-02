@@ -1,8 +1,6 @@
 /*window.alert('Puedes perder algo si no abres los ojos antes de que sea tarde');*/
 //prompt("Puedes perder algo si no abres los ojos antes de que sea tarde. Ingrese una fecha ?/?/23");
 
-
-
 //IMPORTE DE FUNCIONES
 import { funcGene } from "./Scripts/functions.js";
 
@@ -82,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const typed = new Typed('.typed', {
    strings: ['INVITACIÓN <br> CUARTA REVOLUCIÓN <BR> INDUSTRIAL'],
    typeSpeed: 75,
-   cursorChar: '',
+   cursorChar: '|',
    loop: false
 });
 
@@ -93,58 +91,7 @@ const HayNove = new Typed('.aviso', {
    loop: true
 });
 
-/*const novedadesContent = new Typed('.HayNovedas', {
-    stringsElement: '#novedades',
-    typeSpeed: 75,
-    cursorChar: '',
-    loop: false
-});*/
 
-/*function quitarNoved() {
-    document.getElementById('novedades').style.display = 'none';
-}*/
-
-var pistas;
-function mostrarNovedades() {
-   console.log("funciona");
-   /*let aviso = document.getElementById('novedades');
-   aviso.style.display = 'flex';
-   setTimeout(() => { aviso.style.display = 'none'; }, 5000);*/
-   var contend = document.getElementById('ocultarnovedades');
-   var novedades = document.createElement('div');
-   novedades.classList.add('hayNovedad');
-   novedades.setAttribute('id', 'novedades');
-   contend.appendChild(novedades);
-   avisoNov.removeEventListener('click', mostrarNovedades);
-   avisoJuego.removeEventListener('click', infoJuego);
-
-   setTimeout(() => {
-      pistas = new Typed('.hayNovedad', {
-         strings: [' · Lugar: El salón. <br>· Fecha: 5 de diciembre <br>· Hora: 10:15 a.m. <br>· Los OJOS pueden hablar.'],
-         typeSpeed: 30,
-         cursorChar: '',
-         loop: false,
-         onComplete: () => {
-            setTimeout(() => {
-               var contend = document.getElementById('ocultarnovedades');
-               var novedades = document.getElementById('novedades');
-               contend.removeChild(novedades);
-               avisoNov.addEventListener('click', mostrarNovedades);
-               avisoJuego.addEventListener('click', infoJuego);
-            }, 4000)
-         }
-      })
-   }, 1000)
-
-   
-}
-
-/*function ocultarNovedades() {
-    document.getElementById('novedades').style.display = 'none';
-}*/
-
-var avisoNov = document.getElementById('aviso');
-avisoNov.addEventListener('click', mostrarNovedades);
 
 /*let ocultNov = document.getElementById('novedades');
 ocultNov.addEventListener('click', ocultarNovedades);*/
@@ -152,7 +99,7 @@ ocultNov.addEventListener('click', ocultarNovedades);*/
 /*let ocultNoved = document.getElementById('ocultarnovedades');
 ocultNoved.addEventListener('click', ocultarNovedades)*/
 
-//FUNCIONES BOTONES
+//FUNCIONES BOTONES OJOS
 //BOTON UNO
 var botonuno = document.getElementById('boton1');
 botonuno.addEventListener('click', () => {
@@ -197,14 +144,106 @@ function infoJuego() {
    var contend = document.getElementById('ocultarnovedades');
    var novedades = document.createElement('div');
    novedades.classList.add('hayNovedad');
-   novedades.setAttribute('id', 'novedades');
+   novedades.setAttribute('id', 'inforjuego');
    contend.appendChild(novedades);
    avisoNov.removeEventListener('click', mostrarNovedades);
    avisoJuego.removeEventListener('click', infoJuego);
 
    setTimeout(() => {
       pistas = new Typed('.hayNovedad', {
-         strings: [' · Ten en cuenta: <br>· Hay cosas que no ves, pero están por ahí. <br>· Debes tratar de entender.'],
+         strings: [' · Ten en cuenta: <br>· Hay cosas que no ves, pero están por ahí. <br>· Debes tratar de entender. <br>· Quien gane en el modo HARD tiene doble recompensa.'],
+         typeSpeed: 30,
+         cursorChar: '',
+         loop: false,
+         onComplete: () => {
+            setTimeout(() => {
+               var contend = document.getElementById('ocultarnovedades');
+               var novedades = document.getElementById('inforjuego');
+               contend.removeChild(novedades);
+               
+               /* avisoJuego.addEventListener('click', infoJuego); */
+            }, 2000)
+            /* setTimeout(() => {
+               window.location.href = "./Bucle1.html";
+            }, 2500); */
+            setTimeout( () => {
+               // Crear el div flotante
+               var floatingDiv = document.createElement('div');
+               floatingDiv.classList.add('floating-buttons');
+
+               // Crear botón Easy
+               var buttonEasy = document.createElement('div');
+               buttonEasy.setAttribute('id', 'botonEasy');
+               buttonEasy.innerText = 'Easy';
+               buttonEasy.addEventListener('click', function () {
+                   // Acciones para el botón Easy
+                   window.location.replace('./Bucle1.html'); // Reemplaza con la URL o acción deseada
+               });
+
+               // Crear botón Hard
+               var buttonHard = document.createElement('div');
+               buttonHard.setAttribute('id', 'botonHard');
+               buttonHard.innerText = 'Hard';
+               buttonHard.addEventListener('click', function () {
+                   // Acciones para el botón Hard
+                   /* window.location.href = "./Hard.html"; // Reemplaza con la URL o acción deseada */
+                   window.alert('El modo HARD estará disponible el 03/12 a las 7 p.m.');
+               });
+
+               // Agregar botones al div flotante
+               floatingDiv.appendChild(buttonEasy);
+               floatingDiv.appendChild(buttonHard);
+
+               // Agregar el div flotante al cuerpo del documento
+               document.body.appendChild(floatingDiv);
+
+               // Agregar event listener para cerrar el div al hacer clic fuera de él
+               document.addEventListener('click', closeFloatingDiv);
+
+               // Agregar event listener al botón avisoJuego
+               avisoNov.addEventListener('click', mostrarNovedades);
+               avisoJuego.addEventListener('click', infoJuego);
+            }, 2300)
+         }
+      })
+   }, 500)  
+}
+
+function closeFloatingDiv(event) {
+   var floatingDiv = document.querySelector('.floating-buttons');
+   if (floatingDiv && !floatingDiv.contains(event.target)) {
+       // Si se hizo clic fuera del div flotante, eliminarlo
+       floatingDiv.parentNode.removeChild(floatingDiv);
+
+       // Volver a añadir la función al botón avisoJuego
+       
+
+       // Eliminar el event listener para cerrar el div
+       document.removeEventListener('click', closeFloatingDiv);
+   }
+}
+
+var avisoJuego = document.getElementById('boton2');
+avisoJuego.addEventListener('click', infoJuego);
+
+//FUNCIÓN MOSTRAR NOVEDADES
+var pistas;
+function mostrarNovedades() {
+   avisoJuego.removeEventListener('click', infoJuego);
+   console.log("funciona");
+   /*let aviso = document.getElementById('novedades');
+   aviso.style.display = 'flex';
+   setTimeout(() => { aviso.style.display = 'none'; }, 5000);*/
+   var contend = document.getElementById('ocultarnovedades');
+   var novedades = document.createElement('div');
+   novedades.classList.add('hayNovedad');
+   novedades.setAttribute('id', 'novedades');
+   contend.appendChild(novedades);
+   avisoNov.removeEventListener('click', mostrarNovedades);
+
+   setTimeout(() => {
+      pistas = new Typed('.hayNovedad', {
+         strings: [' · Lugar: El salón. <br>· Fecha: 5 de diciembre <br>· Hora: 10:15 a.m. <br>· Los OJOS pueden hablar.'],
          typeSpeed: 30,
          cursorChar: '',
          loop: false,
@@ -215,14 +254,11 @@ function infoJuego() {
                contend.removeChild(novedades);
                avisoNov.addEventListener('click', mostrarNovedades);
                avisoJuego.addEventListener('click', infoJuego);
-            }, 4000)
-            setTimeout(() => {
-               window.location.href = "./Bucle1.html";
-            }, 4500);
+            }, 2000)
          }
       })
-   }, 1000)  
+   }, 1000)
 }
 
-var avisoJuego = document.getElementById('boton2');
-avisoJuego.addEventListener('click', infoJuego);
+var avisoNov = document.getElementById('aviso');
+avisoNov.addEventListener('click', mostrarNovedades);
