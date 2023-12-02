@@ -204,7 +204,7 @@ function infoJuego() {
 
    setTimeout(() => {
       pistas = new Typed('.hayNovedad', {
-         strings: [' · Ten en cuenta:. <br>· Hay cosas que no ves, pero están por ahí. <br>· Esto apenas comienza y debes tratar de entender. <br>· Registra lo que creas pueda servir, cada día habrán cambios.'],
+         strings: [' · Ten en cuenta: <br>· Hay cosas que no ves, pero están por ahí. <br>· Debes tratar de entender.'],
          typeSpeed: 30,
          cursorChar: '',
          loop: false,

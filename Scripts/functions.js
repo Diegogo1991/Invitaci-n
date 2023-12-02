@@ -5,13 +5,37 @@ export const funcGene = {
 }
 
 //FUNCION MUSICA ALEATORIA
+var cantidadCanciones = 19;
+var indice;
 function musicAleatorie() {
-   let indice = Math.floor(Math.random() * 19);
+   indice = Math.floor(Math.random() * cantidadCanciones);
    let audio = document.getElementById('audio');
    audio.src = `./Musica/${indice}.mp3`;
    console.log("musica ready")
 }
 
+function pausarCancion() {
+   audio.pause();
+}
+
+function reproducirCancion() {
+   audio.play();
+}
+
+function cambiarCancion() {
+   indice++;
+   if(indice > 19){
+      indice = 0;
+   }
+   audio.src = `./Musica/${indice}.mp3`;
+}
+const botonReproducir = document.getElementById('reproducir');
+   const botonPausar = document.getElementById('pausar');
+   const botonCambiar = document.getElementById('cambiar');
+
+botonPausar.addEventListener('click', pausarCancion);
+botonReproducir.addEventListener('click', reproducirCancion);
+botonCambiar.addEventListener('click', cambiarCancion);
 //COMENTARIOS PLANTILLA LLAMAR A LA FUNCION
 //setTimeout(funcGene.musicAleatorie, 1000);
 /*document.addEventListener("DOMContentLoaded", function () {
@@ -54,7 +78,7 @@ function fondoAleatorie() {
 
 //CAMBIAR FONDOS ALEATORIOS
 function cambiarFondo() {
-   let maximo = 57;
+   let maximo = 56;
    var fondo = Math.floor(Math.random() * maximo);
    document.getElementById('fondo').style.background = `url('../Img/EVDS/${fondo}.jpg') center center / cover`;
 }
@@ -63,7 +87,7 @@ function cambiarFondo() {
 
 //PONER EVIDENCIAS
 function ponerEvi() {
-   let maximoEV = 57;
+   let maximoEV = 56;
    var evidencia = Math.floor(Math.random() * maximoEV);
    document.getElementById('fondo').style.background = `url('../Img/EVDS/${evidencia}.jpg') center center / cover`;
 }
