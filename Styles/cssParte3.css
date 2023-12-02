@@ -120,6 +120,47 @@ html * {
    font-size: 1rem;
 }
 
+.reproductor{
+   display: flex;
+   position: fixed;
+   bottom: 0;
+   border-radius: 40px;
+   background-color: rgba(0, 0, 255, 0.242);
+   height: 2.5rem;
+   width: 35%;
+   justify-content: space-between;
+   align-items: center;
+   z-index: 10;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+.reproductor-botones{
+   display: flex;
+   height: 100%;
+   width: 25%;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(210, 105, 30, 0.616);
+   border-radius: 50px;
+   animation: animate 5s linear infinite;
+}
+
+.reproductor-botones i{
+   color: white;
+   align-items: center;
+}
+
+@keyframes animate {
+   0% {
+      filter: hue-rotate(0deg);
+   }
+
+   100% {
+      filter: hue-rotate(360deg);
+   }
+}
+
 video {
    position: absolute;
    top: 0;

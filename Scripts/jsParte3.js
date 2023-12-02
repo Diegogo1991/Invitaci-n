@@ -1,15 +1,15 @@
 //IMPORTACION FUNCIONES GENERALES
 
-import { funcGene } from "./functions.js";
+import { funcGene } from "../Scripts/functions.js";
 
 setTimeout(funcGene.musicAleatorie, 1);
 
 //IMPORTACION FUNCIONES BUCLES
 
-import { funcBucles } from "./functions.js";
+import { funcBucles } from "../Scripts/functions.js";
 
 setTimeout(funcBucles.ponerEvi, 1);
-setTimeout(funcBucles.fondoAleatorie, 1);
+setTimeout(funcBucles.fondoAleatorie, 500);
 
 //CAMBIAR COLORES OPCIONES
 function cambiarColores(query) {

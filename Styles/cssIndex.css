@@ -139,7 +139,7 @@ html {
    display: flex;
    position: fixed;
    width: 45vw;
-   height: 12vh;
+   height: 8vh;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
