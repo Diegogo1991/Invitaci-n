@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
    }
 
    // Utiliza una función arrow en lugar de una función anónima
-   setInterval(cambiarContenidoBoton, 3000);
+   setInterval(cambiarContenidoBoton, 1500);
 });
 
 //FUNCION AVISO DEL JUEGO
@@ -262,3 +262,43 @@ function mostrarNovedades() {
 
 var avisoNov = document.getElementById('aviso');
 avisoNov.addEventListener('click', mostrarNovedades);
+
+//FUNCIÓN MOVER IMAGENES
+const imagenMovil = document.getElementById('boton1');
+const limiteX = window.innerWidth - imagenMovil.clientWidth;
+const limiteY = window.innerHeight - imagenMovil.clientHeight;
+
+let velocidadX = 2; // Puedes ajustar la velocidad según tus preferencias
+let velocidadY = 2;
+
+function moverImagen() {
+    let posX = parseInt(getComputedStyle(imagenMovil).left);
+    let posY = parseInt(getComputedStyle(imagenMovil).top);
+
+    let nuevaPosX = posX + velocidadX;
+    let nuevaPosY = posY + velocidadY;
+
+    // Verificar límites en el eje X
+    if (nuevaPosX < 0 || nuevaPosX > limiteX) {
+        velocidadX *= -1; // Cambiar dirección en el eje X
+    }
+
+    // Verificar límites en el eje Y
+    if (nuevaPosY < 0 || nuevaPosY > limiteY) {
+        velocidadY *= -1; // Cambiar dirección en el eje Y
+    }
+
+    imagenMovil.style.left = nuevaPosX + 'px';
+    imagenMovil.style.top = nuevaPosY + 'px';
+}
+
+function cambiarDireccion() {
+    velocidadX = Math.random() > 0.5 ? 2 : -2; // Probabilidad de cambiar dirección en el eje X
+    velocidadY = Math.random() > 0.5 ? 2 : -2; // Probabilidad de cambiar dirección en el eje Y
+}
+
+// Mover la imagen cada 30 milisegundos (ajusta según tus preferencias)
+setInterval(moverImagen, 15);
+
+// Cambiar dirección aleatoriamente cada 3000 milisegundos (3 segundos)
+setInterval(cambiarDireccion, 2500);

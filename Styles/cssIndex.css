@@ -249,6 +249,13 @@ html {
 .botones img{
    width: 100%;
 }
+#boton1{
+   position: fixed;
+   width: 15vw; /* Ajusta el tamaño de la imagen según tus necesidades */
+   height: auto;
+   transition: transform 1s linear;
+   z-index: 999;
+}
 
 @keyframes float{
    0%, 100%{
