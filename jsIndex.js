@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
    // Vincula la función a cualquier clic en el body
    //document.body.addEventListener('click', reproducirAudioAleatorio);
 
-   window.alert('Tercer y último bucle listo. ¿El lunes habrá ganador?');
+   window.alert('Tercer y penúltimo bucle listo. ¿El lunes habrá ganador?');
    document.addEventListener('click', reproducirAudioAleatorio);
    document.addEventListener('keydown', reproducirAudioAleatorio);
    document.addEventListener('touchstart', reproducirAudioAleatorio);
