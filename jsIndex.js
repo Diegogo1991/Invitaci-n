@@ -314,7 +314,7 @@ moverObjeto(ojoMovil, 1, 2);
 ojoMovil.addEventListener('click', funcGene.abrirLinkAleatorio);
 
 const ojito = new Typed('.ojo-pizarra', {
-   strings: ['Los', 'ojos', 'quiren', 'que', 'abras', 'los', 'ojos', 'para', 'ganar', 'eso', 'que', 'quieres'],
+   strings: ['Los', 'ojos', 'quieren', 'que', 'abras', 'los', 'ojos', 'para', 'ganar', 'eso', 'que', 'quieres'],
    typeSpeed: 50,
    cursorChar: '|',
    loop: true
