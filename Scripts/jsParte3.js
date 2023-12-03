@@ -70,10 +70,14 @@ let b2h8 = document.getElementById('b2h8');
 b2h8.addEventListener('click', mostrarHero6);
 
 let b1h9 = document.getElementById('b1h9');
-b1h9.addEventListener('click', mostrarHero5);
+b1h9.addEventListener('click', ()=>{
+   window.location.replace('../psique.html');
+});
 
 let b2h9 = document.getElementById('b2h9');
-b2h9.addEventListener('click', mostrarHero4);
+b2h9.addEventListener('click', ()=>{
+   window.location.replace('../index.html');
+});
 
 //ADMIN DIVS
 function ocultarHeros(hero) {
@@ -184,41 +188,55 @@ function mostrarHero9() {
    funcBucles.fondoAleatorie();
 }
 
-const imagenMovil = document.getElementById('imagenMovil');
-const limiteX = window.innerWidth - imagenMovil.clientWidth;
-const limiteY = window.innerHeight - imagenMovil.clientHeight;
+function moverObjeto(objeto, velocidadX, velocidadY) {
+   const limiteX = window.innerWidth - objeto.clientWidth;
+   const limiteY = window.innerHeight - objeto.clientHeight;
 
-let velocidadX = 2; // Puedes ajustar la velocidad según tus preferencias
-let velocidadY = 2;
+   function mover() {
+       let posX = parseInt(getComputedStyle(objeto).left);
+       let posY = parseInt(getComputedStyle(objeto).top);
 
-function moverImagen() {
-    let posX = parseInt(getComputedStyle(imagenMovil).left);
-    let posY = parseInt(getComputedStyle(imagenMovil).top);
+       let nuevaPosX = posX + velocidadX;
+       let nuevaPosY = posY + velocidadY;
 
-    let nuevaPosX = posX + velocidadX;
-    let nuevaPosY = posY + velocidadY;
+       // Verificar límites en el eje X
+       if (nuevaPosX < 0 || nuevaPosX > limiteX) {
+           velocidadX *= -1; // Cambiar dirección en el eje X
+       }
 
-    // Verificar límites en el eje X
-    if (nuevaPosX < 0 || nuevaPosX > limiteX) {
-        velocidadX *= -1; // Cambiar dirección en el eje X
-    }
+       // Verificar límites en el eje Y
+       if (nuevaPosY < 0 || nuevaPosY > limiteY) {
+           velocidadY *= -1; // Cambiar dirección en el eje Y
+       }
 
-    // Verificar límites en el eje Y
-    if (nuevaPosY < 0 || nuevaPosY > limiteY) {
-        velocidadY *= -1; // Cambiar dirección en el eje Y
-    }
+       objeto.style.left = nuevaPosX + 'px';
+       objeto.style.top = nuevaPosY + 'px';
+   }
 
-    imagenMovil.style.left = nuevaPosX + 'px';
-    imagenMovil.style.top = nuevaPosY + 'px';
+   function cambiarDireccion() {
+       velocidadX = Math.random() > 0.5 ? Math.abs(velocidadX) : -Math.abs(velocidadX); // Cambiar dirección en el eje X
+       velocidadY = Math.random() > 0.5 ? Math.abs(velocidadY) : -Math.abs(velocidadY); // Cambiar dirección en el eje Y
+   }
+
+   // Mover el objeto cada 30 milisegundos (ajusta según tus preferencias)
+   setInterval(mover, 15);
+
+   // Cambiar dirección aleatoriamente cada 3000 milisegundos (3 segundos)
+   setInterval(cambiarDireccion, 2500);
 }
 
-function cambiarDireccion() {
-    velocidadX = Math.random() > 0.5 ? 2 : -2; // Probabilidad de cambiar dirección en el eje X
-    velocidadY = Math.random() > 0.5 ? 2 : -2; // Probabilidad de cambiar dirección en el eje Y
-}
+// Aplicar la lógica a diferentes objetos
+const imagenMovil1 = document.getElementById('imagenMovil');
+moverObjeto(imagenMovil1, 2, 2);
 
-// Mover la imagen cada 30 milisegundos (ajusta según tus preferencias)
-setInterval(moverImagen, 15);
+const imagenMovil2 = document.getElementById('ojo-pizarra');
+moverObjeto(imagenMovil2, 2, 3);
 
-// Cambiar dirección aleatoriamente cada 3000 milisegundos (3 segundos)
-setInterval(cambiarDireccion, 2500);
+imagenMovil2.addEventListener('click', funcGene.abrirLinkAleatorio);
+
+const ojito = new Typed('.ojo-pizarra', {
+   strings: ['Cada', 'vez', 'habrán', 'más', 'mensajes', 'este', 'es uno', 'de los', 'más', 'importantes', 'porque', 'al final', 'aparecerá', 'un aviso', 'indicando', 'quien', 'gana', 'solo', 'ganará', 'una', 'persona', 'apenas', 'alguien', 'gane', 'la página', 'avisará' ],
+   typeSpeed: 50,
+   cursorChar: '|',
+   loop: true
+});

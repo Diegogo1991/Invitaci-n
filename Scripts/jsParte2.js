@@ -187,7 +187,7 @@ function mostrarHero9() {
 
 const salida = document.getElementById('exit-BUCLE-dos');
 salida.addEventListener('click', ()=>{
-   window.location.replace('https://www.youtube.com/watch?v=ybkXLkEpq_s&list=WL&index=11&ab_channel=EsquizofreniaNatural');
+   window.location.replace('../Bucle3.html');
 })
 
 

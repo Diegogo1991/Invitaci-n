@@ -257,6 +257,14 @@ html {
    z-index: 999;
 }
 
+#boton3{
+   position: fixed;
+   width: 15vw; /* Ajusta el tamaño de la imagen según tus necesidades */
+   height: auto;
+   transition: transform 1s linear;
+   z-index: 999;
+}
+
 @keyframes float{
    0%, 100%{
       transform: translateY(0rem);
@@ -366,6 +374,37 @@ video {
    width: 100%;
    height: 100%;
    object-fit: cover;
+}
+
+#ojo-pizarra {
+   display: flex;
+   position: fixed;
+   top: 50%;
+   left: 60%;
+   transform: translate(-50%, -50%);
+   width: 16vw; /* Ajusta el tamaño de la imagen según tus necesidades */
+   height: 16vw;
+   border-radius: 50%;
+   transition: transform 1s linear;
+   z-index: 999;
+   background: url('../Img/gif/eye.gif') center/cover no-repeat;
+   box-shadow: 0 0 20px 0 cyan;
+   color: red;
+   text-shadow: 0 0 10px black;
+   align-items: center; 
+   justify-content: center;
+   font-family: 'Righteous';
+   font-size: .8rem;
+   animation: animate 5s linear infinite;
+   /* animation: anchor 3s linear infinite; */
+   overflow: hidden;
+}
+
+#ojo-pizarra p{
+   color: white;
+   font-family: 'Righteous';
+   font-size: .8rem;
+   text-shadow: 0 0 10px black;
 }
 
 audio {

@@ -1,7 +1,8 @@
 //FUNCIONES GENERALES TODOS LOS ARCHIVOS
 export const funcGene = {
    musicAleatorie,
-   fondoAleatorio
+   fondoAleatorio,
+   abrirLinkAleatorio
 }
 
 //FUNCION MUSICA ALEATORIA
@@ -91,3 +92,27 @@ function ponerEvi() {
    var evidencia = Math.floor(Math.random() * maximoEV);
    document.getElementById('fondo').style.background = `url('../Img/EVDS/${evidencia}.jpg') center center / cover`;
 }
+
+//FUNCION ABRIR LINK ALEATORIO
+function abrirLinkAleatorio() {
+   const conjuntoDeEnlaces = [
+      'https://www.instagram.com/p/C0Uia0CLnqn/?igshid=ODhhZWM5NmIwOQ==',
+      'https://www.instagram.com/reel/C0J11FJo84Y/?igshid=NjFhOGMzYTE3ZQ==',
+      'https://www.instagram.com/reel/CzCZEPWhj-2/?utm_source=ig_web_copy_link&igshid=NTYzOWQzNmJjMA==',
+      'https://www.instagram.com/reel/CzXTpvUJbVH/?utm_source=ig_web_copy_link&igshid=NTYzOWQzNmJjMA==',
+      'https://www.youtube.com/watch?v=ybkXLkEpq_s&list=WL&index=11&ab_channel=EsquizofreniaNatural'
+    ];
+   // Obtén un índice aleatorio dentro del rango de la longitud del conjunto de enlaces
+   const indiceAleatorio = Math.floor(Math.random() * conjuntoDeEnlaces.length);
+ 
+   // Obtén el enlace correspondiente al índice aleatorio
+   const enlaceAleatorio = conjuntoDeEnlaces[indiceAleatorio];
+ 
+   // Abre el enlace en una nueva ventana o pestaña
+   window.open(enlaceAleatorio, '_blank');
+ }
+ 
+ // Ejemplo de uso:
+ 
+ 
+ 

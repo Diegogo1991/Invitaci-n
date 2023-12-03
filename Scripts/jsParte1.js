@@ -219,7 +219,6 @@ sueño.onclick = ocultarAvisoSueños;
 
 var botonsalida = document.getElementById('salida');
 botonsalida.addEventListener('click', () => {
-   window.open('https://www.youtube.com/watch?v=w_dRY1dxYbI');
    window.location.replace('Bucle2.html');
 });
 

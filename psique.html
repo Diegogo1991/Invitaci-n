@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./Styles/reset.css">
+   <link rel="icon" href="./Img/5.ico">
+   <title>PSQ</title>
+   
+</head>
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+/* font-family: 'Righteous',
+   cursive; */
+
+   video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+
+   audio{
+      display: none;
+   }
+
+   .capa {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #1c1c1d;
+      opacity: 0.7;
+      mix-blend-mode: overlay;
+
+   }
+
+   #ultimo+div {
+      visibility: hidden;
+   }
+
+   #hero {
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      background: cyan;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+   }
+
+
+   .contenedor {
+      width: 100vw;
+      height: 100vw;
+      background: rgba(0, 255, 255, 0.651);
+      background: url('../img/psique1.png') center center / cover;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      position: relative;
+      text-align: center;
+      z-index: 5;
+   }
+
+   #funciones{
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 20%;
+      width: 20%;
+      z-index: 10;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+   }
+
+   #funcion{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50%;
+      width: 80%;
+      background: rgb(248, 112, 1, 0.7);
+      text-align: center;
+      border-radius: .5rem;
+      color: white;
+      text-shadow: 0 0 10px black;
+      font-family: 'Righteous';
+      font-size: clamp(8px, 2vh - 1vw, 17px);
+   }
+
+   .cajas{
+      display: flex;
+      height: 40%;
+      width: 100%;
+      /*background-color: rgba(255, 94, 0, 0.158);*/
+      justify-content: center;
+      align-items: center;
+   }
+
+   .enlacesUp{
+      display: flex;
+      height: 100%;
+      width: 50%;
+      /*background-color: rgba(0, 255, 255, 0.404);*/
+   }
+
+   .enlaceDown{
+      display: flex;
+      height: 100%;
+      width: 50%;
+      /*background-color: rgba(0, 255, 255, 0.404);*/
+   }
+</style>
+
+<body>
+   <div id="hero">
+      <div id="contenedor" class="contenedor">
+         <div id="funciones" class="funciones">
+            <div id="funcion"> Combinar</div>
+         </div>
+         <div class="cajas">
+            <a href="https://www.youtube.com/watch?v=We1lrUBOIYU&list=LL&index=9&t=2s&ab_channel=LetrasyOrtograf%C3%ADa" id="enlace1" class="enlacesUp"></a>
+            <a href="https://www.educ.ar/recursos/132100/potencias-de-10-ceros-atomos-y-el-tamano-de-todas-las-cosas" id="enlace2" class="enlacesUp"></a>
+         </div>
+         <div class="cajas">
+            <a href="https://www.youtube.com/watch?v=Pp3WTXz3Ujs&ab_channel=MiMejorYo" id="enlace3" class="enlaceDown"></a>
+         </div>
+      </div>
+      <video id="video" muted autoplay loop src="./Videos/0.mp4" type="video/mp4">
+      </video>
+      <div class="capa"></div>
+   </div>
+   <audio id="audio" autoplay loop src="" type="audio/mpeg"></audio>
+   <div id="ultimo"></div>
+</body>
+<script>
+   //FUNCION MUSICA ALEATORIA
+   function musicAleatorie() {
+      var indice = Math.floor(Math.random() * 19);
+      var audio = document.getElementById('audio');
+      audio.src = `./Musica/${indice}.mp3`;
+   }
+   document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(musicAleatorie, 1);
+   });
+
+   //FUNCION FONDO ALEATORIA
+      function fondoAleatorie() {
+         var indice = Math.floor(Math.random() * 12);
+         var video = document.getElementById('video');
+         video.src = `./videos/FEVDS/${indice}.mp4`;
+      }
+      //setTimeout(fondoAleatorie, 1);
+      document.addEventListener("DOMContentLoaded", function () {
+         setTimeout(fondoAleatorie, 1);
+      });
+
+   var activador;
+   activador = document.getElementById('funcion');
+   activador.addEventListener('click', showChanges1);
+
+   function showChanges3(){ 
+      document.getElementById('contenedor').style.background = "url('../img/psique4.png') center center / cover";
+
+      document.getElementById('funcion').style.backgroundColor = `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random()*255)}, 255, 0.8)`;
+      
+      document.getElementById('funcion').textContent = "Elige uno";
+
+      document.getElementById('enlace1').href = "https://www.youtube.com/watch?v=62wDYoPC4Sg&list=PLVCAyfXUAsByGdNHLdAU9HuuAuTY9gspS&ab_channel=JesusS%C3%A1nchez";
+      document.getElementById('enlace2').href = "https://www.youtube.com/@DRLAROSA";
+      document.getElementById('enlace3').href = "https://www.youtube.com/@MiMejorYo";
+
+      activador.removeEventListener('click', showChanges1);
+      activador = document.getElementById('funcion');
+      activador.addEventListener('click', ()=>{
+         window.location.replace('index.html');
+      });
+   }
+
+   function showChanges2(){ 
+      document.getElementById('contenedor').style.background = "url('../img/psique3.png') center center / cover";
+
+      document.getElementById('funcion').style.backgroundColor = `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random()*255)}, 255, 0.8)`;
+      
+      document.getElementById('funcion').textContent = "Convertir";
+
+      document.getElementById('enlace1').href = "https://www.youtube.com/watch?v=ybLK-FzN8n8&ab_channel=shawnftyo";
+      document.getElementById('enlace2').href = "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/http://apoyandoteenlau.ucr.ac.cr/serviciosvirtualesoo/2020IICiclo/OOEnCasa/Emociones/FactoresInfluyenEnLaMemoria.pdf";
+      document.getElementById('enlace3').href = "https://www.youtube.com/watch?v=eX-PtDT6WWE&ab_channel=CorduraArtificial";
+
+      activador.removeEventListener('click', showChanges2);
+      activador = document.getElementById('funcion');
+      activador.addEventListener('click', showChanges3);
+   }
+
+   function showChanges1(){ 
+      document.getElementById('contenedor').style.background = "url('../img/psique2.png') center center / cover";
+
+      document.getElementById('funcion').style.backgroundColor = `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random()*255)}, 255, 0.8)`;
+      
+      document.getElementById('funcion').textContent = "Limpiar";
+
+      document.getElementById('enlace1').href = "https://www.youtube.com/watch?v=QBtD1cCq0yg&list=WL&index=79&t=207s&ab_channel=MimiLofiChill";
+      document.getElementById('enlace2').href = "https://www.youtube.com/watch?v=uYYRAPBbr_w&list=WL&index=13&ab_channel=EnPocasPalabras%E2%80%93Kurzgesagt";
+      document.getElementById('enlace3').href = "https://www.youtube.com/watch?v=vIJPn0NjHbc&list=WL&index=44&ab_channel=MiMejorYo";
+
+      activador.removeEventListener('click', showChanges1);
+      activador = document.getElementById('funcion');
+      activador.addEventListener('click', showChanges2);
+   }
+</script>
+</html>

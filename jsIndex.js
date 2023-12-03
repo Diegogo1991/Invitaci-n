@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
    // Vincula la función a cualquier clic en el body
    //document.body.addEventListener('click', reproducirAudioAleatorio);
 
-   window.alert('Ya se subió la segunda parte.');
+   window.alert('Tercer y último bucle listo. ¿El lunes habrá ganador?');
    document.addEventListener('click', reproducirAudioAleatorio);
    document.addEventListener('keydown', reproducirAudioAleatorio);
    document.addEventListener('touchstart', reproducirAudioAleatorio);
@@ -264,41 +264,58 @@ var avisoNov = document.getElementById('aviso');
 avisoNov.addEventListener('click', mostrarNovedades);
 
 //FUNCIÓN MOVER IMAGENES
+function moverObjeto(objeto, velocidadX, velocidadY) {
+   const limiteX = window.innerWidth - objeto.clientWidth;
+   const limiteY = window.innerHeight - objeto.clientHeight;
+
+   function mover() {
+       let posX = parseInt(getComputedStyle(objeto).left);
+       let posY = parseInt(getComputedStyle(objeto).top);
+
+       let nuevaPosX = posX + velocidadX;
+       let nuevaPosY = posY + velocidadY;
+
+       // Verificar límites en el eje X
+       if (nuevaPosX < 0 || nuevaPosX > limiteX) {
+           velocidadX *= -1; // Cambiar dirección en el eje X
+       }
+
+       // Verificar límites en el eje Y
+       if (nuevaPosY < 0 || nuevaPosY > limiteY) {
+           velocidadY *= -1; // Cambiar dirección en el eje Y
+       }
+
+       objeto.style.left = nuevaPosX + 'px';
+       objeto.style.top = nuevaPosY + 'px';
+   }
+
+   function cambiarDireccion() {
+       velocidadX = Math.random() > 0.5 ? Math.abs(velocidadX) : -Math.abs(velocidadX); // Cambiar dirección en el eje X
+       velocidadY = Math.random() > 0.5 ? Math.abs(velocidadY) : -Math.abs(velocidadY); // Cambiar dirección en el eje Y
+   }
+
+   // Mover el objeto cada 30 milisegundos (ajusta según tus preferencias)
+   setInterval(mover, 15);
+
+   // Cambiar dirección aleatoriamente cada 3000 milisegundos (3 segundos)
+   setInterval(cambiarDireccion, 2500);
+}
+
 const imagenMovil = document.getElementById('boton1');
-const limiteX = window.innerWidth - imagenMovil.clientWidth;
-const limiteY = window.innerHeight - imagenMovil.clientHeight;
+moverObjeto(imagenMovil, 2, 5);
 
-let velocidadX = 2; // Puedes ajustar la velocidad según tus preferencias
-let velocidadY = 2;
+const imagenMovil2 = document.getElementById('boton3');
+moverObjeto(imagenMovil2, 2, 3);
 
-function moverImagen() {
-    let posX = parseInt(getComputedStyle(imagenMovil).left);
-    let posY = parseInt(getComputedStyle(imagenMovil).top);
+//FUNCIONES OJO MOVIL
+const ojoMovil = document.getElementById('ojo-pizarra');
+moverObjeto(ojoMovil, 1, 2);
 
-    let nuevaPosX = posX + velocidadX;
-    let nuevaPosY = posY + velocidadY;
+ojoMovil.addEventListener('click', funcGene.abrirLinkAleatorio);
 
-    // Verificar límites en el eje X
-    if (nuevaPosX < 0 || nuevaPosX > limiteX) {
-        velocidadX *= -1; // Cambiar dirección en el eje X
-    }
-
-    // Verificar límites en el eje Y
-    if (nuevaPosY < 0 || nuevaPosY > limiteY) {
-        velocidadY *= -1; // Cambiar dirección en el eje Y
-    }
-
-    imagenMovil.style.left = nuevaPosX + 'px';
-    imagenMovil.style.top = nuevaPosY + 'px';
-}
-
-function cambiarDireccion() {
-    velocidadX = Math.random() > 0.5 ? 2 : -2; // Probabilidad de cambiar dirección en el eje X
-    velocidadY = Math.random() > 0.5 ? 2 : -2; // Probabilidad de cambiar dirección en el eje Y
-}
-
-// Mover la imagen cada 30 milisegundos (ajusta según tus preferencias)
-setInterval(moverImagen, 15);
-
-// Cambiar dirección aleatoriamente cada 3000 milisegundos (3 segundos)
-setInterval(cambiarDireccion, 2500);
+const ojito = new Typed('.ojo-pizarra', {
+   strings: ['Los', 'ojos', 'quiren', 'que', 'abras', 'los', 'ojos', 'para', 'ganar', 'eso', 'que', 'quieres'],
+   typeSpeed: 50,
+   cursorChar: '|',
+   loop: true
+});

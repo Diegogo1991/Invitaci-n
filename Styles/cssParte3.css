@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
 /*font-family: 'Roboto Condensed', sans-serif;*/
 
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+/* font-family: 'Righteous',
+cursive; */
+
 #ultimo+div {
    visibility: hidden;
 }
@@ -286,7 +290,7 @@ audio {
 
 }
  
- #imagenMovil {
+#imagenMovil {
    position: fixed;
    top: 50%;
    left: 50%;
@@ -295,4 +299,47 @@ audio {
    height: 100px;
    transition: transform 1s linear;
    z-index: 999;
- }
+   box-shadow: 0 0 30px 0 cyan;
+   border-radius: 50%;
+}
+
+#ojo-pizarra {
+   display: flex;
+   position: fixed;
+   top: 50%;
+   left: 60%;
+   transform: translate(-50%, -50%);
+   width: 16vw; /* Ajusta el tamaño de la imagen según tus necesidades */
+   height: 16vw;
+   border-radius: 50%;
+   transition: transform 1s linear;
+   z-index: 999;
+   background: url('../Img/gif/eye.gif') center/cover no-repeat;
+   box-shadow: 0 0 20px 0 cyan;
+   color: red;
+   text-shadow: 0 0 10px black;
+   align-items: center; 
+   justify-content: center;
+   font-family: 'Righteous';
+   font-size: .8rem;
+   animation: animate 5s linear infinite;
+   /* animation: anchor 3s linear infinite; */
+   overflow: hidden;
+}
+
+#ojo-pizarra p{
+   color: white;
+   font-family: 'Righteous';
+   font-size: .8rem;
+   text-shadow: 0 0 10px black;
+}
+
+/* @keyframes anchor {
+   from {
+      height: 16vw;
+   }
+
+   to {
+      height: 0vw;
+   }
+} */
