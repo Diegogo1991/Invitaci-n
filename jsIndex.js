@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
    // Vincula la función a cualquier clic en el body
    //document.body.addEventListener('click', reproducirAudioAleatorio);
 
-   window.alert('Tercer y penúltimo bucle listo. ¿El lunes habrá ganador?');
+   // window.alert('Tercer y penúltimo bucle listo. ¿El lunes habrá ganador?');
    document.addEventListener('click', reproducirAudioAleatorio);
    document.addEventListener('keydown', reproducirAudioAleatorio);
    document.addEventListener('touchstart', reproducirAudioAleatorio);
@@ -78,14 +78,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 const typed = new Typed('.typed', {
-   strings: ['INVITACIÓN <br> CUARTA REVOLUCIÓN <BR> INDUSTRIAL'],
+   strings: ['INVITACIÓN <br> DECLARACIÓN <br> NAUGES DREAMS'],
    typeSpeed: 75,
    cursorChar: '|',
    loop: false
 });
 
 const HayNove = new Typed('.aviso', {
-   strings: ['¿Cuál es el impacto multifacético de lo digital?'],
+   strings: ['¿Qué va a pasar con esta página?'],
    typeSpeed: 102,
    cursorChar: '',
    loop: true
@@ -151,7 +151,7 @@ function infoJuego() {
 
    setTimeout(() => {
       pistas = new Typed('.hayNovedad', {
-         strings: [' · Ten en cuenta: <br>· Hay cosas que no ves, pero están por ahí. <br>· Debes tratar de entender. <br>· Quien gane en el modo HARD tiene doble recompensa.'],
+         strings: [' · Ten en cuenta: <br>· Esto va a cambiar, es mejor que no vuelvas. <br>· Debes tratar de entender. <br>· Quiero confesar muchas cosas.'],
          typeSpeed: 30,
          cursorChar: '',
          loop: false,
@@ -187,7 +187,7 @@ function infoJuego() {
                buttonHard.addEventListener('click', function () {
                    // Acciones para el botón Hard
                    /* window.location.href = "./Hard.html"; // Reemplaza con la URL o acción deseada */
-                   window.alert('El modo HARD estará disponible el 03/12 a las 7 p.m.');
+                   window.alert('El modo HARD estará disponible después y serán las confesiones.');
                });
 
                // Agregar botones al div flotante
@@ -243,7 +243,7 @@ function mostrarNovedades() {
 
    setTimeout(() => {
       pistas = new Typed('.hayNovedad', {
-         strings: [' · Lugar: El salón. <br>· Fecha: 5 de diciembre <br>· Hora: 10:15 a.m. <br>· Los OJOS pueden hablar.'],
+         strings: [' · naugesdreams.netlify.app <br>· Fecha: No sé aún <br>· Los OJOS pueden hablar.'],
          typeSpeed: 30,
          cursorChar: '',
          loop: false,
