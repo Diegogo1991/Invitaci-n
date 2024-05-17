@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 const typed = new Typed('.typed', {
-   strings: ['INVITACIÓN <br> DECLARACIÓN <br> NAUGES DREAMS'],
+   strings: ['INVITACIÓN <br> NAUGES DREAMS'],
    typeSpeed: 75,
    cursorChar: '|',
    loop: false
